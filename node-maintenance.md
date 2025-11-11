@@ -208,5 +208,3 @@ Key actions include:
 * Backing up and restoring **etcd**
 * Performing **safe upgrades** for control and worker nodes
 * Designing **highly available** architectures for production resilience.
-
-Would you like me to split this into separate `.md` files (e.g., `node-maintenance.md`, `etcd-backup.md`, `ha-setup.md`) so it fits your existing repo structure?
