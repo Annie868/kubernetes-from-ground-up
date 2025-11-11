@@ -148,5 +148,3 @@ Templating tools make Kubernetes application management **scalable and maintaina
 * **Kustomize**: Customize manifests for different environments without modifying the base YAML
 
 Together, these tools help streamline deployment workflows and reduce human error.
-
-Do you want me to do that?
