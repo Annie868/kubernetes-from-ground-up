@@ -221,6 +221,3 @@ Deploying Kubernetes applications effectively requires understanding:
 * **Sidecar containers** for logging and observability
 
 These tools allow you to deploy reliable, scalable, and maintainable applications in a Kubernetes cluster.
-
-
-Do you want me to do that next?
