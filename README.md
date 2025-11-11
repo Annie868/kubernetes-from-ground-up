@@ -1,6 +1,6 @@
-# kubernetes-from-ground-up
+# Creating a Kubernetes Cluster with kubeadm
 
-# **1. Understanding Cluster Node Requirements**
+## **1. Understanding Cluster Node Requirements**
 
 Before setting up a cluster, you need to understand **node roles** and **resource requirements**:
 
@@ -25,7 +25,7 @@ Before setting up a cluster, you need to understand **node roles** and **resourc
 
 ---
 
-# **2. Provisioning Infrastructure for Hosting Kubernetes**
+## **2. Provisioning Infrastructure for Hosting Kubernetes**
 
 * **Virtual Machines / Physical Machines / Cloud Instances**
 
@@ -41,7 +41,7 @@ Before setting up a cluster, you need to understand **node roles** and **resourc
 
 ---
 
-# **3. Installation Procedure Overview**
+## **3. Installation Procedure Overview**
 
 1. Prepare OS on all nodes (Ubuntu/CentOS/RHEL)
 2. Configure Linux kernel for networking
@@ -53,7 +53,7 @@ Before setting up a cluster, you need to understand **node roles** and **resourc
 
 ---
 
-# **4. Configuring Linux Kernel Settings for Kubernetes Networking**
+## **4. Configuring Linux Kernel Settings for Kubernetes Networking**
 
 Kubernetes requires certain kernel settings for networking:
 
@@ -76,7 +76,7 @@ sudo sysctl --system
 
 ---
 
-# **5. Installing Container Runtime Interface (CRI) and Tools**
+## **5. Installing Container Runtime Interface (CRI) and Tools**
 
 * Kubernetes requires a container runtime like **containerd** or **CRI-O**.
 
@@ -98,7 +98,7 @@ sudo systemctl status containerd
 
 ---
 
-# **6. Installing Kubernetes Components**
+## **6. Installing Kubernetes Components**
 
 ```bash
 sudo apt update && sudo apt install -y apt-transport-https curl
@@ -117,7 +117,7 @@ sudo apt-mark hold kubelet kubeadm kubectl
 
 ---
 
-# **7. Using `kubeadm init`**
+## **7. Using `kubeadm init`**
 
 On the **first control plane node**:
 
@@ -135,7 +135,7 @@ sudo kubeadm init \
 
 ---
 
-# **8. Configuring the Kubernetes Client**
+## **8. Configuring the Kubernetes Client**
 
 ```bash
 mkdir -p $HOME/.kube
@@ -148,7 +148,7 @@ kubectl get nodes
 
 ---
 
-# **9. Setting Up Node Networking**
+## **9. Setting Up Node Networking**
 
 * Kubernetes requires a CNI plugin (Container Network Interface) for Pod networking.
 * Example: **Calico**
@@ -165,7 +165,7 @@ kubectl get pods -n kube-system
 
 ---
 
-# **10. Adding Nodes to the Cluster**
+## **10. Adding Nodes to the Cluster**
 
 * On each **worker node**, use the join command provided by `kubeadm init`:
 
@@ -185,7 +185,7 @@ sudo kubeadm join <LOADBALANCER_IP>:6443 --token <token> \
 
 ---
 
-# **11. Using `kubeadm init` with a Configuration File**
+## **11. Using `kubeadm init` with a Configuration File**
 
 Instead of command-line options, you can use a **YAML config file** for better reproducibility:
 
@@ -222,7 +222,7 @@ sudo kubeadm init --config kubeadm-config.yaml
 
 ---
 
-# ✅ **Summary Workflow**
+## **Summary Workflow**
 
 1. **Prepare nodes** → resources, OS, networking
 2. **Configure Linux kernel** → networking modules
