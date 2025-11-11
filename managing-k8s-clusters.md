@@ -18,7 +18,7 @@ kubectl get nodes
 kubectl describe node <node-name>
 ```
 
-### 💡 Check Node Conditions
+### Check Node Conditions
 
 Look for:
 
@@ -172,7 +172,7 @@ sudo systemctl status containerd
 sudo systemctl restart containerd
 ```
 
-### 📊 View Logs
+### View Logs
 
 ```bash
 # View kubelet logs
