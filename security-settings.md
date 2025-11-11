@@ -273,5 +273,3 @@ By:
 * Using **RBAC** to precisely control user and account permissions,
 
 you ensure your cluster remains secure, auditable, and compliant with best practices.
-
-Would you like me to make this section link smoothly to your previous topics (like “Node Maintenance” → “Security Settings”) so the transition in your docs feels continuous?
