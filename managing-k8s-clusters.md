@@ -1,16 +1,14 @@
----
-
-# 🧩 Managing Kubernetes Clusters
+# Managing Kubernetes Clusters
 
 This guide covers essential node-level management operations in Kubernetes, including analyzing nodes, managing containers with `crictl`, running static Pods, controlling node state, and managing node services.
 
 ---
 
-## ⚙️ 1. Analyzing Cluster Nodes
+## 1. Analyzing Cluster Nodes
 
 Cluster nodes are the backbone of Kubernetes. You can inspect their health, configuration, and resource usage directly with `kubectl`.
 
-### 🔍 List and Describe Nodes
+### List and Describe Nodes
 
 ```bash
 # List all cluster nodes
@@ -36,12 +34,12 @@ kubectl top nodes
 
 ---
 
-## 🐳 2. Using `crictl` to Manage Node Containers
+## 2. Using `crictl` to Manage Node Containers
 
 `crictl` lets you interact directly with the **Container Runtime Interface (CRI)**.
 It’s useful when `kubectl` can’t reach the API server or for low-level debugging.
 
-### 🧭 Basic Usage
+### Basic Usage
 
 ```bash
 # List all running containers on the node
@@ -57,7 +55,7 @@ sudo crictl inspect <container-id>
 sudo crictl logs <container-id>
 ```
 
-### 🔧 Managing Containers
+### Managing Containers
 
 ```bash
 # Stop a running container
@@ -77,12 +75,12 @@ These commands allow direct control over node containers without relying on the 
 
 ---
 
-## 📦 3. Running Static Pods
+## 3. Running Static Pods
 
 **Static Pods** are managed directly by the **kubelet**, not the API server.
 They’re ideal for critical components like control plane services or node-local agents.
 
-### 🗂️ Configure Static Pods
+### Configure Static Pods
 
 1. Find the static Pod manifest path (default: `/etc/kubernetes/manifests`):
 
@@ -121,11 +119,11 @@ Static Pods restart automatically if deleted and always run on their host node.
 
 ---
 
-## 🧱 4. Managing Node State
+## 4. Managing Node State
 
 Sometimes you need to temporarily remove nodes from scheduling (for upgrades or maintenance).
 
-### 📴 Cordon / Drain / Uncordon
+### Cordon / Drain / Uncordon
 
 ```bash
 # Mark node unschedulable (new Pods won’t be scheduled)
@@ -138,7 +136,7 @@ kubectl drain <node-name> --ignore-daemonsets --delete-emptydir-data
 kubectl uncordon <node-name>
 ```
 
-### 🔍 Check Node Readiness
+### Check Node Readiness
 
 ```bash
 kubectl get nodes
@@ -148,7 +146,7 @@ Look at the **STATUS** column for `Ready`, `NotReady`, or `SchedulingDisabled`.
 
 ---
 
-## 🔁 5. Managing Node Services
+## 5. Managing Node Services
 
 Each node runs several key services that keep it functional:
 
@@ -158,7 +156,7 @@ Each node runs several key services that keep it functional:
 | **kube-proxy**         | Maintains network rules for services                             |
 | **containerd / CRI-O** | Container runtime responsible for pulling and running containers |
 
-### 🧩 Check and Restart Services
+### Check and Restart Services
 
 ```bash
 # Check kubelet service
@@ -198,5 +196,3 @@ By:
 * **Maintaining node services** diligently,
 
 you can ensure a stable, resilient, and maintainable Kubernetes environment.
-
----
